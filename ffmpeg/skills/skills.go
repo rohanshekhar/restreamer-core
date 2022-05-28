@@ -147,8 +147,8 @@ func version(binary string) (ffmpeg, error) {
 
 func parseVersion(data []byte) ffmpeg {
 	f := ffmpeg{}
-
-	reVersion := regexp.MustCompile(`^ffmpeg version ([0-9]+\.[0-9]+(\.[0-9]+)?)`)
+	// Patch this for the updated ffmpeg binary with the leading n
+	reVersion := regexp.MustCompile(`^ffmpeg version .?([0-9]+\.[0-9]+(\.[0-9]+)?)`)
 	reCompiler := regexp.MustCompile(`(?m)^\s*built with (.*)$`)
 	reConfiguration := regexp.MustCompile(`(?m)^\s*configuration: (.*)$`)
 	reLibrary := regexp.MustCompile(`(?m)^\s*(lib(?:[a-z]+))\s+([0-9]+\.\s*[0-9]+\.\s*[0-9]+) /\s+([0-9]+\.\s*[0-9]+\.\s*[0-9]+)`)
