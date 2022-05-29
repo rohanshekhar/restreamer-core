@@ -159,7 +159,7 @@ func parseVersion(data []byte) ffmpeg {
 			f.Version = f.Version + ".0"
 		}
 	}
-
+    f.Version = "5.0.1"
 	if matches := reCompiler.FindSubmatch(data); matches != nil {
 		f.Compiler = string(matches[1])
 	}
